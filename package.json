@@ -1,0 +1,30 @@
+{
+  "name": "adopt-me",
+  "version": "1.0.0",
+  "description": "Adopt Me from FrontEndMasters.com",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier \"src/**/*.{js, html}\" --write",
+    "lint": "eslint \"src/**/*.{js, jsx}\" --quiet",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmanadkat/FrontEndMasters-Reactv5.git"
+  },
+  "keywords": [
+    "React",
+    "FrontendMasters"
+  ],
+  "author": "Krupesh Anadkat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kmanadkat/FrontEndMasters-Reactv5/issues"
+  },
+  "homepage": "https://github.com/kmanadkat/FrontEndMasters-Reactv5#readme",
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "prettier": "^2.1.2"
+  }
+}
