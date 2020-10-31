@@ -1,12 +1,22 @@
-import React, { useState } from "react";
-import {ANIMALS} from '@frontendmasters/pet';
+import React, { useState, useEffect } from "react";
+import pet, {ANIMALS} from '@frontendmasters/pet';
 import useDropdown from "./useDropdown";
 
 const SearchParams = () => {
   const [location, setLocation] = useState("Seattle, WA");
-  const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
   const [breeds, setBreeds] = useState([]);
-  const [breed, BreedDropdown] = useDropdown("Breed", "", breeds);
+  const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
+  const [breed, BreedDropdown, setBreed] = useDropdown("Breed", "", breeds);
+
+  useEffect(() => {
+    setBreeds([]);
+    setBreed("");
+    pet.breeds(animal).then(({breeds: apiBreedsData}) => {
+      const breedStrings = apiBreedsData.map(({name}) => name);
+      setBreeds(breedStrings);
+    }, console.error);
+  }, [animal, setBreeds, setBreed])
+  // Pass empty array if want to run only once (similar to componentDidMount treatment)
 
   return (
     <div className="search-params">
